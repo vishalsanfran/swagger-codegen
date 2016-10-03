@@ -91,11 +91,20 @@ class {{classname}}(object):
 {{/isContainer}}
 {{/isEnum}}
 {{^isEnum}}
+<<<<<<< 501306600e08d3ee1847a2ebec75f22bcd19af71
 {{#required}}
         if {{name}} is None:
             raise ValueError("Invalid value for `{{name}}`, must not be `None`")
 {{/required}}
 {{#hasValidation}}
+=======
+{{#hasValidation}}
+
+{{#required}}
+        if not {{name}}:
+            raise ValueError("Invalid value for `{{name}}`, must not be `None`")
+{{/required}}
+>>>>>>> supports required tag
 {{#maxLength}}
         if {{name}} is not None and len({{name}}) > {{maxLength}}:
             raise ValueError("Invalid value for `{{name}}`, length must be less than or equal to `{{maxLength}}`")
